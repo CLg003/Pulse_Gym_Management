@@ -15,7 +15,8 @@ import repositories.booking_repository as booking_repository
 member_1 = Member("Jessica", "Fletcher", "698 Candlewood Lane, Cabot Cove", "jessica.fletcher@email.com")
 member_repository.save(member_1)
 
-# member_repository.update(member)
+member_1.first_name = "Joey"
+member_repository.update(member_1)
 
 # member_repository.select(id)
 

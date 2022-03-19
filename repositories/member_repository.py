@@ -12,3 +12,8 @@ def save(member):
     id = results[0]['id']
     member.id = id
     return member
+
+def update(member):
+    sql = "UPDATE members SET (first_name, last_name, address, email) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [member.first_name, member.last_name, member.address, member.email, member.id]
+    run_sql(sql, values)
