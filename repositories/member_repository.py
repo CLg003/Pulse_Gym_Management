@@ -28,6 +28,13 @@ def select_all():
         members.append(member)
     return members
 
+def select(id):
+    sql = "SELECT * FROM members WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    member = Member(result['first_name'], result['last_name'], result['address'], result['email'], result['id'])
+    return member
+
 
 def delete_all():
     sql = "DELETE FROM members"
