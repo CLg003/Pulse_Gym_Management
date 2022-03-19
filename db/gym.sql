@@ -24,14 +24,14 @@ CREATE TABLE bookings (
     fitness_class_id INT REFERENCES fitness_classes(id)
 );
 
-INSERT INTO members (first_name, last_name, address, email) VALUES ('Jessica', 'Fletcher', '698 Candlewood Lane, Cabot Cove', 'jessica.fletcher@email.com');
-INSERT INTO members (first_name, last_name, address, email) VALUES ('Sherlock', 'Holmes', '221b Baker Street, London', 'sherlock.holmes@email.com');
+-- INSERT INTO members (first_name, last_name, address, email) VALUES ('Jessica', 'Fletcher', '698 Candlewood Lane, Cabot Cove', 'jessica.fletcher@email.com');
+-- INSERT INTO members (first_name, last_name, address, email) VALUES ('Sherlock', 'Holmes', '221b Baker Street, London', 'sherlock.holmes@email.com');
 
-INSERT INTO fitness_classes (name, category, day, time) VALUES ('Yoga', 'Mind & Body', 'Monday', '19:00');
-INSERT INTO fitness_classes (name, category, day, time) VALUES ('Circuits', 'Gym', 'Tuesday', '07:00');
+-- INSERT INTO fitness_classes (name, category, day, time) VALUES ('Yoga', 'Mind & Body', 'Monday', '19:00');
+-- INSERT INTO fitness_classes (name, category, day, time) VALUES ('Circuits', 'Gym', 'Tuesday', '07:00');
 
-INSERT INTO bookings (member_id, fitness_class_id) VALUES (1, 1);
-INSERT INTO bookings (member_id, fitness_class_id) VALUES (2, 1);
-INSERT INTO bookings (member_id, fitness_class_id) VALUES (2, 2);
+-- INSERT INTO bookings (member_id, fitness_class_id) VALUES (1, 1);
+-- INSERT INTO bookings (member_id, fitness_class_id) VALUES (2, 1);
+-- INSERT INTO bookings (member_id, fitness_class_id) VALUES (2, 2);
 
 
