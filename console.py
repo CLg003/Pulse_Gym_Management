@@ -30,12 +30,6 @@ member_repository.save(member_2)
 # member_repository.delete(member_1.id)
 
 
-
-# STILL TO WRITE:
-# member_repository.classes(member)
-
-
-
 class_1 = FitnessClass("Yoga", "Mind & Body", "Monday", "19:00")
 fitness_class_repository.save(class_1)
 class_2 = FitnessClass("Circuits", "Gym", "Tuesday", "07:00")
@@ -48,14 +42,13 @@ fitness_class_repository.save(class_2)
 # for fitness_class in fitness_classes:
 #     print(fitness_class.__dict__)
 
-fitness_class = fitness_class_repository.select(class_2.id)
-print(fitness_class.__dict__)
+# fitness_class = fitness_class_repository.select(class_2.id)
+# print(fitness_class.__dict__)
 
-# fitness_class_repository.delete(id)
+# fitness_class_repository.delete(class_2.id)
 
-# fitness_class_repository.members(fitness_class)
 
-# booking_repository.save(booking)
+booking_repository.save(booking)
 
 # booking_repository.update(booking)
 
@@ -64,6 +57,13 @@ print(fitness_class.__dict__)
 # booking_repository.select(id)
 
 # booking_repository.delete(id)
+
+
+# STILL TO WRITE:
+
+# member_repository.classes(member)
+
+# fitness_class_repository.members(fitness_class)
 
 # booking_repository.member(booking)
 
