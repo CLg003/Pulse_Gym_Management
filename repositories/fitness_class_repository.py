@@ -11,3 +11,9 @@ def save(fitness_class):
     id = results[0]['id']
     fitness_class.id = id
     return fitness_class
+
+def update(fitness_class):
+    sql = "UPDATE fitness_classes SET (name, category, day, time) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [fitness_class.name, fitness_class.category, fitness_class.day, fitness_class.time, fitness_class.id]
+    run_sql(sql, values)
+

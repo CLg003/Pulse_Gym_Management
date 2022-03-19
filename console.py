@@ -41,7 +41,8 @@ fitness_class_repository.save(class_1)
 class_2 = FitnessClass("Circuits", "Gym", "Tuesday", "07:00")
 fitness_class_repository.save(class_2)
 
-# fitness_class_repository.update(fitness_class)
+class_1.name = "Body Balance"
+fitness_class_repository.update(class_1)
 
 # fitness_class_repository.select_all()
 
