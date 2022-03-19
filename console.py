@@ -10,7 +10,7 @@ import repositories.booking_repository as booking_repository
 
 # booking_repository.delete_all()
 # fitness_class_repository.delete_all()
-# member_repository.delete_all()
+member_repository.delete_all()
 
 member_1 = Member("Jessica", "Fletcher", "698 Candlewood Lane, Cabot Cove", "jessica.fletcher@email.com")
 member_repository.save(member_1)
