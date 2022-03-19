@@ -26,6 +26,13 @@ def select_all():
         fitness_classes.append(fitness_class)
     return fitness_classes
 
+def select(id):
+    sql = "SELECT * FROM fitness_classes WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    fitness_class = FitnessClass(result['name'], result['category'], result['day'], result['time'], result['id'])
+    return fitness_class
+
 def delete_all():
     sql = "DELETE FROM fitness_classes"
     run_sql(sql)

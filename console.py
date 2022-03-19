@@ -44,11 +44,12 @@ fitness_class_repository.save(class_2)
 # class_1.name = "Body Balance"
 # fitness_class_repository.update(class_1)
 
-fitness_classes = fitness_class_repository.select_all()
-for fitness_class in fitness_classes:
-    print(fitness_class.__dict__)
+# fitness_classes = fitness_class_repository.select_all()
+# for fitness_class in fitness_classes:
+#     print(fitness_class.__dict__)
 
-# fitness_class_repository.select(id)
+fitness_class = fitness_class_repository.select(class_2.id)
+print(fitness_class.__dict__)
 
 # fitness_class_repository.delete(id)
 
