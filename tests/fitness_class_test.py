@@ -4,7 +4,7 @@ from models.fitness_class import FitnessClass
 class TestFitnessClass(unittest.TestCase):
 
     def setUp(self):
-        self.class_1 = FitnessClass("Yoga", "Mind & Body", "Monday", "13:00")
+        self.class_1 = FitnessClass("Yoga", "Mind & Body", "Monday", "19:00")
 
     def test_class_has_name(self):
         self.assertEqual("Yoga", self.class_1.name)
