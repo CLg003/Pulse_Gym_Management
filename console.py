@@ -20,22 +20,26 @@ member_repository.save(member_2)
 # member_1.first_name = "Joey"
 # member_repository.update(member_1)
 
-members = member_repository.select_all()
-for member in members:
-    print(member.__dict__)
+# members = member_repository.select_all()
+# for member in members:
+#     print(member.__dict__)
 
 # member = member_repository.select(member_2.id)
 # print(member.__dict__)
  
-member_repository.delete(member_1.id)
+# member_repository.delete(member_1.id)
 
-members = member_repository.select_all()
-for member in members:
-    print(member.__dict__)
 
+
+# STILL TO WRITE:
 # member_repository.classes(member)
 
-# fitness_class_repository.save(fitness_class)
+
+
+class_1 = FitnessClass("Yoga", "Mind & Body", "Monday", "19:00")
+fitness_class_repository.save(class_1)
+class_2 = FitnessClass("Circuits", "Gym", "Tuesday", "07:00")
+fitness_class_repository.save(class_2)
 
 # fitness_class_repository.update(fitness_class)
 

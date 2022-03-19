@@ -5,4 +5,9 @@ from models.member import Member
 from models.booking import Booking
 
 def save(fitness_class):
-    pass
+    sql = "INSERT INTO fitness_classes (name, category, day, time) VALUES (%s, %s, %s, %s) RETURNING *"
+    values = [fitness_class.name, fitness_class.category, fitness_class.day, fitness_class.time]
+    results = run_sql(sql, values)
+    id = results[0]['id']
+    fitness_class.id = id
+    return fitness_class
