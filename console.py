@@ -14,13 +14,17 @@ member_repository.delete_all()
 
 member_1 = Member("Jessica", "Fletcher", "698 Candlewood Lane, Cabot Cove", "jessica.fletcher@email.com")
 member_repository.save(member_1)
+member_2 = Member("Sherlock", "Holmes", "221b Baker Street, London", "sherlock.holmes@email.com")
+member_repository.save(member_2)
 
-member_1.first_name = "Joey"
-member_repository.update(member_1)
+# member_1.first_name = "Joey"
+# member_repository.update(member_1)
+
+members = member_repository.select_all()
+for member in members:
+    print(member.__dict__)
 
 # member_repository.select(id)
-
-# member_repository.select_all()
 
 # member_repository.delete(id)
 
@@ -30,9 +34,9 @@ member_repository.update(member_1)
 
 # fitness_class_repository.update(fitness_class)
 
-# fitness_class_repository.select(id)
-
 # fitness_class_repository.select_all()
+
+# fitness_class_repository.select(id)
 
 # fitness_class_repository.delete(id)
 
@@ -42,9 +46,9 @@ member_repository.update(member_1)
 
 # booking_repository.update(booking)
 
-# booking_repository.select(id)
-
 # booking_repository.select_all()
+
+# booking_repository.select(id)
 
 # booking_repository.delete(id)
 
