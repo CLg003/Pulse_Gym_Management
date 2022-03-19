@@ -20,14 +20,18 @@ member_repository.save(member_2)
 # member_1.first_name = "Joey"
 # member_repository.update(member_1)
 
-# members = member_repository.select_all()
-# for member in members:
-#     print(member.__dict__)
+members = member_repository.select_all()
+for member in members:
+    print(member.__dict__)
 
-member = member_repository.select(member_2.id)
-print(member.__dict__)
+# member = member_repository.select(member_2.id)
+# print(member.__dict__)
+ 
+member_repository.delete(member_1.id)
 
-# member_repository.delete(id)
+members = member_repository.select_all()
+for member in members:
+    print(member.__dict__)
 
 # member_repository.classes(member)
 
