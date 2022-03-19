@@ -17,3 +17,12 @@ def update(fitness_class):
     values = [fitness_class.name, fitness_class.category, fitness_class.day, fitness_class.time, fitness_class.id]
     run_sql(sql, values)
 
+def select_all():
+    fitness_classes = []
+    sql = "SELECT * FROM fitness_classes"
+    results = run_sql(sql)
+    for row in results:
+        fitness_class = FitnessClass(row['name'], row['category'], row['day'], row['time'], row['id'])
+        fitness_classes.append(fitness_class)
+    return fitness_classes
+
