@@ -26,3 +26,6 @@ def select_all():
         fitness_classes.append(fitness_class)
     return fitness_classes
 
+def delete_all():
+    sql = "DELETE FROM fitness_classes"
+    run_sql(sql)
