@@ -9,8 +9,13 @@ body {
     font-family: "Trebuchet MS", Tahoma, Geneva, sans-serif;
 }
 
+header, footer {
+    background-color: #226191;
+
+}
+
 header {
-    background-color: #387594;
+    /* background-color: #387594; */
     width: 100%;
     margin: auto;
     padding: 20px;
@@ -24,7 +29,7 @@ header {
     padding-right: 50px;
     font-family: Phosphate;
     text-shadow: 2px 2px 10px #000;
-    color: #b80b1c;
+    color: #f48c06;
 }
 
 #logo-main > h1 {
@@ -72,8 +77,8 @@ a {
     text-transform: uppercase;
     font-weight: 800;
     font-size: 25px;
-    color: #b80b1c;
-    text-shadow: 2px 2px 3px #000;
+    color: #f48c06;
+    /* text-shadow: 1px 1px 3px #000; */
 }
 
 .main-nav:hover, #footer-flex > a:hover {
@@ -105,7 +110,7 @@ main {
 }    
 
 footer {
-    background-color: #387594;
+    /* background-color: #387594; */
     color: #ced2dc;
     height: 60px;
     margin: 0;
