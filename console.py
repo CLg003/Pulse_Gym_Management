@@ -8,7 +8,7 @@ import repositories.member_repository as member_repository
 import repositories.fitness_class_repository as fitness_class_repository
 import repositories.booking_repository as booking_repository
 
-# booking_repository.delete_all()
+booking_repository.delete_all()
 fitness_class_repository.delete_all()
 member_repository.delete_all()
 
@@ -52,17 +52,21 @@ booking_repository.save(booking_1)
 booking_2 = Booking(member_2, class_1)
 booking_repository.save(booking_2)
 
-booking_1.fitness_class = class_2
-booking_repository.update(booking_1)
+# booking_1.fitness_class = class_2
+# booking_repository.update(booking_1)
 
 bookings = booking_repository.select_all()
 for booking in bookings:
     print(booking.__dict__)
 
-
-# booking_repository.select(id)
+# booking = booking_repository.select(booking_1.id)
+# print(booking.__dict__)
 
 # booking_repository.delete(id)
+
+# bookings = booking_repository.select_all()
+# for booking in bookings:
+#     print(booking.__dict__)
 
 
 # STILL TO WRITE:

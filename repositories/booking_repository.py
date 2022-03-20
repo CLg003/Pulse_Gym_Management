@@ -30,3 +30,16 @@ def select_all():
         booking = Booking(member, fitness_class, row['id'])
         bookings.append(booking)
     return bookings
+
+def select(id):
+    sql = "SELECT * FROM bookings WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    member = member_repository.select(result['member_id'])
+    fitness_class = fitness_class_repository.select(result['fitness_class_id'])
+    booking = Booking(member, fitness_class, result['id'])
+    return booking
+
+def delete_all():
+    sql = "DELETE FROM bookings"
+    run_sql(sql)
