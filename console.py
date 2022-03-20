@@ -1,5 +1,5 @@
 import pdb
-from statistics import median_grouped
+
 from models.member import Member
 from models.fitness_class import FitnessClass
 from models.booking import Booking
@@ -26,7 +26,7 @@ member_repository.save(member_2)
 
 # member = member_repository.select(member_2.id)
 # print(member.__dict__)
- 
+
 # member_repository.delete(member_1.id)
 
 
@@ -47,8 +47,8 @@ fitness_class_repository.save(class_2)
 
 # fitness_class_repository.delete(class_2.id)
 
-
-booking_repository.save(booking)
+booking_1 = Booking(member_1, class_1)
+booking_repository.save(booking_1)
 
 # booking_repository.update(booking)
 
