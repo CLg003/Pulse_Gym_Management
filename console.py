@@ -17,6 +17,18 @@ member_repository.save(member_1)
 member_2 = Member("Sherlock", "Holmes", "221b Baker Street, London", "sherlock.holmes@email.com")
 member_repository.save(member_2)
 
+class_1 = FitnessClass("Yoga", "Mind & Body", "Monday", "19:00")
+fitness_class_repository.save(class_1)
+class_2 = FitnessClass("Circuits", "Gym", "Tuesday", "07:00")
+fitness_class_repository.save(class_2)
+
+booking_1 = Booking(member_1, class_1)
+booking_repository.save(booking_1)
+booking_2 = Booking(member_1, class_2)
+booking_repository.save(booking_2)
+booking_3 = Booking(member_2, class_2)
+booking_repository.save(booking_3)
+
 # member_1.first_name = "Joey"
 # member_repository.update(member_1)
 
@@ -28,12 +40,6 @@ member_repository.save(member_2)
 # print(member.__dict__)
 
 # member_repository.delete(member_1.id)
-
-
-class_1 = FitnessClass("Yoga", "Mind & Body", "Monday", "19:00")
-fitness_class_repository.save(class_1)
-class_2 = FitnessClass("Circuits", "Gym", "Tuesday", "07:00")
-fitness_class_repository.save(class_2)
 
 # class_1.name = "Body Balance"
 # fitness_class_repository.update(class_1)
@@ -47,13 +53,6 @@ fitness_class_repository.save(class_2)
 
 # fitness_class_repository.delete(class_2.id)
 
-booking_1 = Booking(member_1, class_1)
-booking_repository.save(booking_1)
-booking_2 = Booking(member_1, class_2)
-booking_repository.save(booking_2)
-booking_3 = Booking(member_2, class_2)
-booking_repository.save(booking_3)
-
 # booking_1.fitness_class = class_2
 # booking_repository.update(booking_1)
 
@@ -65,10 +64,6 @@ booking_repository.save(booking_3)
 # print(booking.__dict__)
 
 # booking_repository.delete(booking_1.id)
-
-
-
-# STILL TO WRITE:
 
 # fitness_classes = member_repository.fitness_classes(member_1)
 # for fitness_class in fitness_classes:
@@ -82,9 +77,8 @@ booking_repository.save(booking_3)
 # for booking in bookings:
 #     print(booking.__dict__)
 
-bookings = fitness_class_repository.bookings(class_2)
-for booking in bookings:
-    print(booking.__dict__)
-
+# bookings = fitness_class_repository.bookings(class_2)
+# for booking in bookings:
+#     print(booking.__dict__)
 
 pdb.set_trace()
