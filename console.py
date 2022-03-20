@@ -62,11 +62,11 @@ for booking in bookings:
 # booking = booking_repository.select(booking_1.id)
 # print(booking.__dict__)
 
-# booking_repository.delete(id)
+booking_repository.delete(booking_1.id)
 
-# bookings = booking_repository.select_all()
-# for booking in bookings:
-#     print(booking.__dict__)
+bookings = booking_repository.select_all()
+for booking in bookings:
+    print(booking.__dict__)
 
 
 # STILL TO WRITE:
