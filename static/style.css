@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f3f2f2;
+    width: 100%;
+    font-family: "Trebuchet MS", Tahoma, Geneva, sans-serif;
+}
+
+header {
+    background-color: #387594;
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+}
+
+#logo-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap row;
+    padding-right: 50px;
+    font-family: Phosphate;
+    text-shadow: 2px 2px 10px #000;
+    color: #b80b1c;
+}
+
+#logo-main > h1 {
+    font-size: 150px;
+    padding-bottom: 0;
+}
+
+#logo-side {
+    display: flex;
+    flex-direction: column;
+    font-size: 45px;
+    line-height: 0.8;
+    padding-top: 0;
+}
+
+#logo-icon {
+    display: flex;
+    align-items: center;
+}
+
+#logo-icon > img {
+    padding-left: 15px;
+    padding-top: 0;
+    position: relative;
+    bottom: 5px;
+}
+
+nav > ul {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap row;
+    width: 40%;
+    margin: auto;
+    padding-right: 50px;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+.main-nav, #footer-flex > a {
+    font-family:  Tahoma, Geneva, "Trebuchet MS", sans-serif;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 25px;
+    color: #b80b1c;
+    text-shadow: 2px 2px 3px #000;
+}
+
+.main-nav:hover, #footer-flex > a:hover {
+    color: #000;
+    text-shadow: none;
+}
+
+hr {
+    border: 1px solid #293241;
+}
+
+main {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+#client {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #293241;
+    background-color: #ced2dc;
+
+}
+
+#lower-hr {
+    position: relative;
+    bottom: 20px;
+}    
+
+footer {
+    background-color: #387594;
+    color: #ced2dc;
+    height: 60px;
+    margin: 0;
+    padding: 20px 0 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#footer-flex {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-flow: wrap row;
+}

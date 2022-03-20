@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{{ title }} - Pulse Gym Management</title>
+</head>
+<body>
+    <header>
+        <div id="logo-main">
+            <h1>PULSE</h1>
+            <div id="logo-side">
+                <div id="logo-icon">
+                    <h2>Gym</h2><img src="static/images/noun-barbell-2291019.png" alt="Barbell icon" height="60px" width="270px">
+                </div>
+                <h2>Management</h2>
+            </div>
+
+        </div>
+        <br>
+        <nav>
+            <ul>
+                <li><a href="/" class="main-nav">Home</a></li>
+                <li><a href="/members" class="main-nav">Members</a></li>
+                <li><a href="/fitness_classes" class="main-nav">Classes</a></li>
+                <li><a href="/bookings" class="main-nav">Bookings</a></li>
+            </ul>
+        </nav>
+    </header>
+    <hr>
+    <p id="client"><strong>Client:</strong> Urban Gym</p>
+    <main>
+        
+        {% block content %}
+
+        {% endblock %}
+    </main>
+    <footer>
+        <hr id="lower-hr">
+        <div id="footer-flex">
+            <a href="">Contact Us</a>
+            <p>&copy 2022 Pulse Gym Management</p>
+            <div id="social">
+                <a href=""><img src="static/images/Facebook-logo-2021.png" alt="Facebook logo" height="50px"></a>
+                <a href=""><img src="static/images/logo-twitter-circle-png-transparent-image-1.png" alt="Facebook logo" height="50px"></a>
+                <a href=""><img src="static/images/Instagram-Logo-1024x982.png" alt="Facebook logo" height="50px"></a>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>
