@@ -35,3 +35,4 @@ INSERT INTO bookings (member_id, fitness_class_id) VALUES (1, 2);
 INSERT INTO bookings (member_id, fitness_class_id) VALUES (2, 2);
 
 -- SELECT fitness_classes.* FROM fitness_classes INNER JOIN bookings ON bookings.fitness_class_id = fitness_classes.id INNER JOIN members ON members.id = bookings.member_id WHERE bookings.member_id = 1;
+-- SELECT members.* FROM members INNER JOIN bookings ON bookings.member_id = members.id INNER JOIN fitness_classes ON fitness_classes.id = bookings.fitness_class_id WHERE bookings.fitness_class_id = 2;

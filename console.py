@@ -70,11 +70,13 @@ booking_repository.save(booking_3)
 
 # STILL TO WRITE:
 
-fitness_classes = member_repository.fitness_classes(member_1)
-for fitness_class in fitness_classes:
-    print(fitness_class.__dict__)
+# fitness_classes = member_repository.fitness_classes(member_1)
+# for fitness_class in fitness_classes:
+#     print(fitness_class.__dict__)
 
-# fitness_class_repository.members(fitness_class)
+members = fitness_class_repository.members(class_1)
+for member in members:
+    print(member.__dict__)
 
 # booking_repository.member(booking)
 
