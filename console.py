@@ -78,11 +78,13 @@ booking_repository.save(booking_3)
 # for member in members:
 #     print(member.__dict__)
 
-bookings = member_repository.bookings(member_1)
+# bookings = member_repository.bookings(member_1)
+# for booking in bookings:
+#     print(booking.__dict__)
+
+bookings = fitness_class_repository.bookings(class_2)
 for booking in bookings:
     print(booking.__dict__)
-
-# fitness_class_repository.bookings(fitness_class)
 
 
 pdb.set_trace()
