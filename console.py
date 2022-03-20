@@ -20,9 +20,9 @@ member_repository.save(member_2)
 # member_1.first_name = "Joey"
 # member_repository.update(member_1)
 
-# members = member_repository.select_all()
-# for member in members:
-#     print(member.__dict__)
+members = member_repository.select_all()
+for member in members:
+    print(member.__dict__)
 
 # member = member_repository.select(member_2.id)
 # print(member.__dict__)
@@ -38,9 +38,9 @@ fitness_class_repository.save(class_2)
 # class_1.name = "Body Balance"
 # fitness_class_repository.update(class_1)
 
-# fitness_classes = fitness_class_repository.select_all()
-# for fitness_class in fitness_classes:
-#     print(fitness_class.__dict__)
+fitness_classes = fitness_class_repository.select_all()
+for fitness_class in fitness_classes:
+    print(fitness_class.__dict__)
 
 # fitness_class = fitness_class_repository.select(class_2.id)
 # print(fitness_class.__dict__)
@@ -49,11 +49,16 @@ fitness_class_repository.save(class_2)
 
 booking_1 = Booking(member_1, class_1)
 booking_repository.save(booking_1)
+booking_2 = Booking(member_2, class_1)
+booking_repository.save(booking_2)
 
-booking_1.member_id = member_2.id
+booking_1.fitness_class = class_2
 booking_repository.update(booking_1)
 
-# booking_repository.select_all()
+bookings = booking_repository.select_all()
+for booking in bookings:
+    print(booking.__dict__)
+
 
 # booking_repository.select(id)
 
