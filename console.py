@@ -50,7 +50,8 @@ fitness_class_repository.save(class_2)
 booking_1 = Booking(member_1, class_1)
 booking_repository.save(booking_1)
 
-# booking_repository.update(booking)
+booking_1.member_id = member_2.id
+booking_repository.update(booking_1)
 
 # booking_repository.select_all()
 
