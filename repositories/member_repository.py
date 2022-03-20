@@ -5,6 +5,8 @@ from models.member import Member
 from models.fitness_class import FitnessClass
 from models.booking import Booking
 
+import repositories.fitness_class_repository as fitness_class_repository
+
 
 def save(member):
     sql = "INSERT INTO members (first_name, last_name, address, email) VALUES (%s, %s, %s, %s) RETURNING *"
@@ -53,3 +55,15 @@ def fitness_classes(member):
         fitness_class = FitnessClass(row['name'], row['category'], row['day'], row['time'], row['id'])
         fitness_classes.append(fitness_class)
     return fitness_classes
+
+def bookings(member):
+    bookings = []
+    sql = "SELECT bookings.* FROM bookings INNER JOIN members ON bookings.member_id = members.id WHERE bookings.member_id = %s"
+    values = [member.id]
+    results = run_sql(sql, values)
+    for row in results:
+        member = select(row['member_id'])
+        fitness_class = fitness_class_repository.select(row['fitness_class_id'])
+        booking = Booking(member, fitness_class, row['id'])
+        bookings.append(booking)
+    return bookings
