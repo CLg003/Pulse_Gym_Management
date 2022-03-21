@@ -4,7 +4,7 @@
 <h1>Today's Classes</h1>
 <table>
     <tr>
-        <!-- <th>(icon)</th> -->
+        <th></th>
         <th>Class</th>
         <th>Category</th>
         <th>Day</th>
@@ -13,18 +13,20 @@
     {% for fitness_class in fitness_classes %}
         {% if fitness_class.day == today %}
             <tr>
-                <!-- {% if fitness_class.category == "Gym" %}
-                    <td><img src="static/images/noun-barbell-2291019.png" alt="Small barbell icon" height="15px"></td>
+                
+                {% if fitness_class.category == "Gym" %}
+                    <td class="td-column-center"><img src="static/images/noun-barbell-2291019.png" alt="Small barbell icon" height="15px"></td>
                 {% elif fitness_class.category == "Cardio" %}
-                    <td><img src="static/images/noun-heart-1067505.png" alt="Small heart icon" height="25px"></td>
-                {% elif fitness_class_category == "Mind & Body" %}
-                    <td><img src="static/images/noun-yoga-1933061.png" alt="Small yoga pose icon" height="25px"></td>
-                {% endif %} -->
+                    <td class="td-column-center"><img src="static/images/noun-heart-1067505.png" alt="Small heart icon" height="25px"></td>
+                {% elif fitness_class.category == "Mind & Body" %}
+                    <td class="td-column-center"><img src="static/images/noun-yoga-1933061.png" alt="Small yoga icon" height="25px"></td>
+                {% endif %}
+
                 <td>{{ fitness_class.name }}</td>
                 <td>{{ fitness_class.category }}</td>
                 <td>{{ fitness_class.day }}</td>
                 <td>{{ fitness_class.time }}</td>
-                <td>
+                <td class="td-column-center">
                     <button type="button" id="details-button"><a href="/fitness_classes/{{ fitness_class.id }}">Class Details</a></button>
                     <button type="button" id="edit-button"><a href="/fitness_classes/{{ fitness_class.id }}/edit">Edit Class</a></button>
                 </td>

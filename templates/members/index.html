@@ -4,7 +4,7 @@
 <h1>Members</h1>
 <table>
     <tr>
-        <th>Member ID</th>
+        <th id="table-header-1">Member ID</th>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Address</th>
@@ -13,12 +13,12 @@
     </tr>
     {% for member in members %}
         <tr>
-            <td>{{ member.id }}</td>
+            <td class="td-column-center">{{ member.id }}</td>
             <td>{{ member.first_name }}</td>
             <td>{{ member.last_name }}</td>
             <td>{{ member.address }}</td>
             <td>{{ member.email }}</td>
-            <td>
+            <td class="td-column-center">
                 <button type="button" id="details-button"><a href="/members/{{ member.id }}">Member Details</a></button>
                 <button type="button" id="edit-button"><a href="/members/{{ member.id }}/edit">Edit Member</a></button>
             </td>

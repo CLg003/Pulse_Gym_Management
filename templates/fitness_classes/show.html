@@ -34,12 +34,12 @@
         </tr>
         {% for member in members %}
             <tr>
-                <td>{{ member.id }}</td>
+                <td class="td-column-center">{{ member.id }}</td>
                 <td>{{ member.first_name }}</td>
                 <td>{{ member.last_name }}</td>
                 <td>{{ member.address }}</td>
                 <td>{{ member.email }}</td>
-                <td>
+                <td class="td-column-center">
                     <button type="button" id="details-button"><a href="/members/{{ member.id }}">Member Details</a></button>
                 </td>
             </tr>
