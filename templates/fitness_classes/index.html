@@ -23,6 +23,10 @@
             <td>{{ fitness_class.category }}</td>
             <td>{{ fitness_class.day }}</td>
             <td>{{ fitness_class.time }}</td>
+            <td>
+                <button type="button" id="details-button"><a href="/fitness_classes/{{ fitness_class.id }}">Class Details</a></button>
+                <button type="button" id="edit-button"><a href="/fitness_classes/{{ fitness_class.id }}/edit">Edit Class</a></button>
+            </td>
         </tr>
     {% endfor %}
 </table>

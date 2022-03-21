@@ -65,3 +65,13 @@ def bookings(fitness_class):
         booking = Booking(member, fitness_class, row['id'])
         bookings.append(booking)
     return bookings
+
+def select_all_categories():
+    fitness_class_categories = []
+    sql = "SELECT category FROM fitness_classes"
+    results = run_sql(sql)
+    for row in results:
+        fitness_class_category = row['category']
+        fitness_class_categories.append(fitness_class_category)
+    return fitness_class_categories
+

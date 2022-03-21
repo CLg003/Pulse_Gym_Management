@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Edit class details:</h1>
+<br>
+<form action="/fitness_classes/{{ fitness_class.id }}" method="post">    
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ fitness_class.name }}" required autofocus>
+    </div>
+
+    <div>
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+            {% for category in fitness_class_categories %}
+                <option value="{{ category }}"
+                    {% if fitness_class.category == category %} selected="selected"{% endif %}>
+                    {{ category }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div>
+        <label for="day">Day:</label>
+        <select id="day" name="day">
+            {% for day in days %}
+                <option value="{{ day }}"
+                    {% if fitness_class.day == day %} selected="selected"{% endif %}>
+                    {{ day }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div>
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" min="06:00" max="21:00" value="{{ fitness_class.time }}">
+    </div>
+
+    <button class="smaller-text-button" type="submit">Update</button>
+    <button class="smaller-text-button" type="reset">Reset form</button>
+</form>
+
+{% endblock %}

@@ -1,6 +1,42 @@
 {% extends 'base.html' %}
 {% block content %}
 
-(new class form here)
+<h1>Add a new class:</h1>
+<br>
+<form action="/fitness_classes" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Class name" required autofocus>
+    </div>
+
+    <div>
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+            <option value="Gym">Gym</option>
+            <option value="Cardio">Cardio</option>
+            <option value="Mind & Body">Mind & Body</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="day">Day:</label>
+        <select id="day" name="day">
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" min="06:00" max="21:00">
+    </div>
+
+    <button type="submit">Add Class</button>
+</form>
 
 {% endblock %}

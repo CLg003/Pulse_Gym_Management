@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Class details</h1>
+<br>
+<div class="details">
+    <p><strong>Name: </strong>{{ fitness_class.name }}</p>
+    <p><strong>Category: </strong>{{ fitness_class.category }}</p>
+    <p><strong>Day: </strong>{{ fitness_class.day }}</p>
+    <p><strong>Time: </strong>{{ fitness_class.time }}</p>
+</div>
+
+<div class="button-actions-form">
+    <form>
+        <button type="button" id="edit-button"><a href="/fitness_classes/{{ fitness_class.id }}/edit">Edit Class Details</a></button>
+    </form>
+    <form action="/fitness_classes/{{fitness_class.id}}/delete" method="POST">
+        <button type="submit" id="delete-button">Delete Class</button>
+    </form>
+</div>
+
+{% endblock %}

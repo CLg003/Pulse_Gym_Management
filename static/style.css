@@ -94,6 +94,7 @@ main {
     width: 80%;
     margin: auto;
     padding: 20px;
+    padding-bottom: 100px;
 }
 
 #client {
@@ -109,7 +110,7 @@ table {
 }
 
 tr:nth-child(even) {
-    background-color: #D6EEEE;
+    background-color: #ced2dc;
 }
 
 th, td {
@@ -118,15 +119,96 @@ th, td {
     text-align: left;
 }
 
-/* #list {
-    display: flex;
-    flex-direction: column;
+td > button {
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 10%;
+    font-family: "Trebuchet MS", Tahoma, Geneva, sans-serif;
+    text-transform: uppercase;
+    background-color: #f48c06;
 }
 
-#row {
+td > button:hover {
+    background-color: #226191;
+}
+
+td > button > a {
+    color: #000;
+}
+
+td > button > a:hover {
+    color: #fff;
+}
+
+.details {
+    padding: 10px 20px;
+}
+
+.details > p {
+    margin: 10px 0;
+}
+
+.button-actions-form {
     display: flex;
-    align-items: center;
-} */
+    flex-flow: wrap row;
+}
+
+#edit-button > a {
+    color: #000;
+}
+
+#edit-button > a:hover {
+    color: #fff;
+}
+
+#delete-button:hover {
+    background-color: #FF160C;
+}
+
+form {
+    /* width: 90%; */
+    /* margin: auto; */
+}
+
+form > div {
+    padding: 10px 0;
+}
+
+#first_name {
+    width: 200px;
+    margin-left: 20px;
+}
+
+#last_name {
+    width: 200px;
+}
+
+#address {
+    width: 410px;
+    margin-left: 5px;
+}
+
+#email {
+    width: 410px;
+    margin-left: 20px;
+}
+
+form > button {
+    padding: 20px;
+    margin: 20px 10px;
+    border: 2px solid #226191;
+    border-radius: 30%;
+    font-family: "Trebuchet MS", Tahoma, Geneva, sans-serif;
+    font-weight: 800;
+    font-size: larger;
+    text-transform: uppercase;
+    background-color: #f48c06;
+}
+
+form > button:hover {
+    background-color: #226191;
+    color: #fff;
+}
 
 #big-button-row {
     display: flex;
@@ -147,7 +229,7 @@ th, td {
 
 .big-button {
     background-color: #f48c06;
-    border: 10px solid #226191;
+    border: 5px solid #226191;
     border-radius: 20%;
     padding: 20px;
 }

@@ -15,3 +15,38 @@ def members():
 def new_member():
     return render_template("members/new.html")
 
+@members_blueprint.route("/members", methods=['POST'])
+def create_member():
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    address = request.form['address']
+    email = request.form['email']
+    member = Member(first_name, last_name, address, email)
+    member_repository.save(member)
+    return redirect("/members")
+
+@members_blueprint.route("/members/<id>", methods=['GET'])
+def show_member(id):
+    member = member_repository.select(id)
+    return render_template('members/show.html', member=member )
+
+@members_blueprint.route("/members/<id>/edit", methods=['GET'])
+def edit_member(id):
+    member = member_repository.select(id)
+    return render_template('members/edit.html', member=member)
+
+@members_blueprint.route("/members/<id>", methods=['POST'])
+def update_member(id):
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    address = request.form['address']
+    email = request.form['email']
+    member = Member(first_name, last_name, address, email, id)
+    member_repository.update(member)
+    return redirect("/members")   
+
+@members_blueprint.route("/members/<id>/delete", methods=['POST'])
+def delete_member(id):
+    member_repository.delete(id)
+    return redirect("/members")
+

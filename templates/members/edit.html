@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Edit member details:</h1>
+<br>
+<form action="/members/{{ member.id }}" method="post">
+    <div>
+        <label for="id">Member ID:</label>
+        <input type="text" id="id" name="id" value="{{ member.id }}" disabled>
+    </div>
+
+    <div>
+        <label for="first_name">Name:</label>
+        <input type="text" id="first_name" name="first_name" value="{{ member.first_name }}" required autofocus>
+        <input type="text" id="last_name" name="last_name" value="{{ member.last_name }}" required>
+    </div>
+
+    <div>
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" value="{{ member.address }}" required>
+    </div>
+
+    <div>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" value="{{ member.email }}">
+    </div>
+
+    <button class="smaller-text-button" type="submit">Update</button>
+    <button class="smaller-text-button" type="reset">Reset form</button>
+</form>
+
+{% endblock %}

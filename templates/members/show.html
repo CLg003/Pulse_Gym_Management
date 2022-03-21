@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Member details</h1>
+<br>
+<div class="details">
+    <p><strong>Name: </strong>{{ member.first_name }} {{ member.last_name }}</p>
+    <p><strong>Address: </strong>{{ member.address }}</p>
+    <p><strong>Email: </strong>{{ member.email }}</p>
+</div>
+
+<div class="button-actions-form">
+    <form>
+        <button type="button" id="edit-button"><a href="/members/{{ member.id }}/edit">Edit Member Details</a></button>
+    </form>
+    <form action="/members/{{member.id}}/delete" method="POST">
+        <button type="submit" id="delete-button">Delete Member</button>
+    </form>
+</div>
+
+{% endblock %}

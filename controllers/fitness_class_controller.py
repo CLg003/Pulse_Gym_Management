@@ -14,3 +14,40 @@ def fitness_classes():
 @fitness_classes_blueprint.route("/fitness_classes/new", methods=['GET'])
 def new_class():
     return render_template("fitness_classes/new.html")
+
+@fitness_classes_blueprint.route("/fitness_classes", methods=['POST'])
+def create_fitness_class():
+    name = request.form['name']
+    category = request.form['category']
+    day = request.form['day']
+    time = request.form['time']
+    fitness_class = FitnessClass(name, category, day, time)
+    fitness_class_repository.save(fitness_class)
+    return redirect("/fitness_classes")
+
+@fitness_classes_blueprint.route("/fitness_classes/<id>", methods=['GET'])
+def show_fitness_class(id):
+    fitness_class = fitness_class_repository.select(id)
+    return render_template('fitness_classes/show.html', fitness_class=fitness_class)
+
+@fitness_classes_blueprint.route("/fitness_classes/<id>/edit", methods=['GET'])
+def edit_fitness_class(id):
+    fitness_class = fitness_class_repository.select(id)
+    fitness_class_categories = fitness_class_repository.select_all_categories()
+    days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    return render_template('fitness_classes/edit.html', fitness_class=fitness_class, fitness_class_categories=fitness_class_categories, days=days)
+
+@fitness_classes_blueprint.route("/fitness_classes/<id>", methods=['POST'])
+def update_fitness_class(id):
+    name = request.form['name']
+    category = request.form['category']
+    day = request.form['day']
+    time = request.form['time']
+    fitness_class = FitnessClass(name, category, day, time, id)
+    fitness_class_repository.update(fitness_class)
+    return redirect("/fitness_classes")
+
+@fitness_classes_blueprint.route("/fitness_classes/<id>/delete", methods=['POST'])
+def delete_fitness_class(id):
+    fitness_class_repository.delete(id)
+    return redirect("/fitness_classes")

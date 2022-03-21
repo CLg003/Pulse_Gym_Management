@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Booking details</h1>
+<br>
+<div class="details">
+    <p><strong>Booking Ref #: </strong>{{ booking.id }}</p>
+    <p><strong>Member ID/Name: </strong>{{ booking.member.id }} - {{ booking.member.first_name }} {{ booking.member.last_name }}</p>
+    <p><strong>Class: </strong>{{ booking.fitness_class.name }} - {{ booking.fitness_class.day }} {{ booking.fitness_class.time }}</p>
+</div>
+
+<div class="button-actions-form">
+    <form>
+        <button type="button" id="edit-button"><a href="/bookings/{{ booking.id }}/edit">Edit Booking Details</a></button>
+    </form>
+    <form action="/bookings/{{booking.id}}/delete" method="POST">
+        <button type="submit" id="delete-button">Delete Booking</button>
+    </form>
+</div>
+
+{% endblock %}

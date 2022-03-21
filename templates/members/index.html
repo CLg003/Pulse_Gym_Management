@@ -9,6 +9,7 @@
         <th>Last Name</th>
         <th>Address</th>
         <th>Email</th>
+        <th></th>
     </tr>
     {% for member in members %}
         <tr>
@@ -17,6 +18,10 @@
             <td>{{ member.last_name }}</td>
             <td>{{ member.address }}</td>
             <td>{{ member.email }}</td>
+            <td>
+                <button type="button" id="details-button"><a href="/members/{{ member.id }}">Member Details</a></button>
+                <button type="button" id="edit-button"><a href="/members/{{ member.id }}/edit">Edit Member</a></button>
+            </td>
         </tr>
     {% endfor %}
 </table>
