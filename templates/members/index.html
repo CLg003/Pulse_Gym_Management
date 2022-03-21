@@ -1,6 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
 
-(members main content here)
+<h1>Members</h1>
+<table>
+    <tr>
+        <th>Member ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Address</th>
+        <th>Email</th>
+    </tr>
+    {% for member in members %}
+        <tr>
+            <td>{{ member.id }}</td>
+            <td>{{ member.first_name }}</td>
+            <td>{{ member.last_name }}</td>
+            <td>{{ member.address }}</td>
+            <td>{{ member.email }}</td>
+        </tr>
+    {% endfor %}
+</table>
 
 {% endblock %}
