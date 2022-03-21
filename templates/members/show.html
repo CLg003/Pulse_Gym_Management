@@ -36,6 +36,7 @@
                 <td>{{ booking.fitness_class.day }}</td>
                 <td>{{ booking.fitness_class.time }}</td>
                 <td>
+                    <button type="button" id="details-button"><a href="/bookings/{{ booking.id }}">Booking Details</a></button>
                     <button type="button" id="edit-button"><a href="/bookings/{{ booking.id }}/edit">Edit Booking</a></button>
                 </td>
             </tr>
