@@ -27,7 +27,7 @@ header {
     align-items: center;
     flex-flow: wrap row;
     padding-right: 50px;
-    font-family: Phosphate;
+    font-family: Phosphate, Tahoma, Geneva, "Trebuchet MS", sans-serif;
     text-shadow: 2px 2px 10px #000;
     color: #f48c06;
 }
@@ -218,6 +218,7 @@ form > button:hover {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-flow: wrap row;
     padding: 30px 0;
 }
 
@@ -229,6 +230,7 @@ form > button:hover {
     font-weight: 800;
     font-family: Tahoma, Geneva, "Trebuchet MS", sans-serif;
     color: #226191;
+    margin-bottom: 20px;
 }
 
 .big-button {
