@@ -28,7 +28,8 @@ def create_fitness_class():
 @fitness_classes_blueprint.route("/fitness_classes/<id>", methods=['GET'])
 def show_fitness_class(id):
     fitness_class = fitness_class_repository.select(id)
-    return render_template('fitness_classes/show.html', fitness_class=fitness_class)
+    members = fitness_class_repository.members(fitness_class)
+    return render_template('fitness_classes/show.html', fitness_class=fitness_class, members=members)
 
 @fitness_classes_blueprint.route("/fitness_classes/<id>/edit", methods=['GET'])
 def edit_fitness_class(id):
