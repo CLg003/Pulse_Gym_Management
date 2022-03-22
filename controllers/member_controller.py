@@ -9,7 +9,8 @@ members_blueprint = Blueprint('members', __name__)
 @members_blueprint.route('/members')
 def members():
     members = member_repository.select_all()
-    return render_template('members/index.html', members=members, title='Members')
+    sorted_members = sorted(members, key=lambda x: x.id)
+    return render_template('members/index.html', members=sorted_members, title='Members')
 
 @members_blueprint.route('/members/new', methods=['GET'])
 def new_member():
@@ -57,6 +58,7 @@ def update_member(id):
 def delete_member(id):
     member_repository.delete(id)
     members = member_repository.select_all()
+    sorted_members = sorted(members, key=lambda x: x.id)
     message = "Member successfully deleted."
-    return render_template('members/index.html', message=message, members=members, title='Members')
+    return render_template('members/index.html', message=message, members=sorted_members, title='Members')
 

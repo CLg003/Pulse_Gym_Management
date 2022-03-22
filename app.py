@@ -18,8 +18,9 @@ app.register_blueprint(contact_blueprint)
 @app.route('/')
 def home():
     fitness_classes = fitness_class_repository.select_all()
+    sorted_classes = sorted(fitness_classes, key=lambda x: x.time)
     today = datetime.now().strftime("%A")
-    return render_template('index.html', title="Home", fitness_classes=fitness_classes, today=today)
+    return render_template('index.html', title="Home", fitness_classes=sorted_classes, today=today)
 
 if __name__ == '__main__':
     app.run(debug=True)

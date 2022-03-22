@@ -192,11 +192,6 @@ td > button > a:hover {
     background-color: #FF160C;
 }
 
-form {
-    /* width: 90%; */
-    /* margin: auto; */
-}
-
 form > div {
     padding: 10px 0;
 }
@@ -235,6 +230,11 @@ form > button {
 form > button:hover {
     background-color: #226191;
     color: #fff;
+}
+
+#two-buttons {
+    width: 70%;
+    margin: auto;
 }
 
 #big-button-row {

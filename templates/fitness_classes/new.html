@@ -33,7 +33,7 @@
 
     <div>
         <label for="time">Time:</label>
-        <input type="time" id="time" name="time" min="06:00" max="21:00">
+        <input type="time" id="time" name="time" min="06:00" max="21:00" step="900">
     </div>
 
     <button type="submit">Add Class</button>
@@ -41,7 +41,7 @@
 
 <br>
 
-<section class="quick-link-buttons">
+<section class="quick-link-buttons" id="two-buttons">
     <div id="big-button-row">
         <div class="big-button-column">
             <a href="/members/new">
@@ -51,14 +51,7 @@
             </a>
             <h2>+ New Member</h2>
         </div>
-        <div class="big-button-column">
-            <a href="/fitness_classes/new">
-                <div class="big-button">
-                    <img src="{{url_for('static', filename= 'images/noun-weight-1274253.png')}}" width="200px">
-                </div>
-            </a>
-            <h2>+ New Class</h2>
-        </div>
+        
         <div class="big-button-column">
             <a href="/bookings/new">
                 <div class="big-button">
