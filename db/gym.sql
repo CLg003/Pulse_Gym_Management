@@ -8,7 +8,6 @@ CREATE TABLE members (
     last_name VARCHAR(255),
     address VARCHAR(255),
     email VARCHAR(255),
-    premium BOOLEAN,
     active BOOLEAN
 );
 
@@ -25,6 +24,8 @@ CREATE TABLE bookings (
     member_id INT REFERENCES members(id) ON DELETE CASCADE,
     fitness_class_id INT REFERENCES fitness_classes(id) ON DELETE CASCADE
 );
+
+ALTER TABLE members ALTER COLUMN active SET DEFAULT True;
 
 -- INSERT INTO members (first_name, last_name, address, email) VALUES ('Jessica', 'Fletcher', '698 Candlewood Lane, Cabot Cove', 'jessica.fletcher@email.com');
 -- INSERT INTO members (first_name, last_name, address, email) VALUES ('Sherlock', 'Holmes', '221b Baker Street, London', 'sherlock.holmes@email.com');

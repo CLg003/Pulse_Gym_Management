@@ -9,7 +9,6 @@ class FitnessClass:
             "Cardio" : 5,
             "Mind & Body" : 10 
         }
-        self.premium = False
         self.active = True
         self.full = False
         self.id = id

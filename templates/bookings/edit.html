@@ -13,7 +13,7 @@
         <select id="member_id" name="member_id">
             {% for member in members %}
                 <option value="{{ member.id }}"
-                {% if member.id == booking.member.id %} selected="selected"{% endif %}>
+                {% if member.id == booking.member.id %} selected="selected"{% endif %} {% if not member.active %}disabled{% endif %}>
                     {{ member.id }} - {{ member.first_name }} {{ member.last_name }}
                 </option>
             {% endfor %}
