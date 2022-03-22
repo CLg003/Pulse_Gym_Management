@@ -28,6 +28,11 @@
             <td>{{ fitness_class.day }}</td>
             <td>{{ fitness_class.time }}</td>
             <td class="td-column-center">
+                {% if fitness_class.full %}
+                <button type="button" id="class-full-button">Class Full</button>
+                {% else %}
+                <button type="button" id="book-class-button"><a href="/bookings/new">Book Class</a></button>
+                {% endif %}
                 <button type="button" id="details-button"><a href="/fitness_classes/{{ fitness_class.id }}">Class Details</a></button>
                 <button type="button" id="edit-button"><a href="/fitness_classes/{{ fitness_class.id }}/edit">Edit Class</a></button>
             </td>

@@ -1,3 +1,4 @@
+from controllers.fitness_class_controller import fitness_classes
 from db.run_sql import run_sql
 
 from models.fitness_class import FitnessClass
@@ -25,6 +26,9 @@ def select_all():
     results = run_sql(sql)
     for row in results:
         fitness_class = FitnessClass(row['name'], row['category'], row['day'], row['time'], row['id'])
+        number_booked = len(bookings(fitness_class))
+        if number_booked >= fitness_class.capacity[fitness_class.category]:
+            fitness_class.full = True
         fitness_classes.append(fitness_class)
     return fitness_classes
 
