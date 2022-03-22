@@ -16,8 +16,8 @@ def save(fitness_class):
     return fitness_class
 
 def update(fitness_class):
-    sql = "UPDATE fitness_classes SET (name, category, day, time) = (%s, %s, %s, %s) WHERE id = %s"
-    values = [fitness_class.name, fitness_class.category, fitness_class.day, fitness_class.time, fitness_class.id]
+    sql = "UPDATE fitness_classes SET (name, category, day, time, active) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    values = [fitness_class.name, fitness_class.category, fitness_class.day, fitness_class.time, fitness_class.active, fitness_class.id]
     run_sql(sql, values)
 
 def select_all():
@@ -25,7 +25,7 @@ def select_all():
     sql = "SELECT * FROM fitness_classes"
     results = run_sql(sql)
     for row in results:
-        fitness_class = FitnessClass(row['name'], row['category'], row['day'], row['time'], row['id'])
+        fitness_class = FitnessClass(row['name'], row['category'], row['day'], row['time'], row['active'], row['id'])
         number_booked = len(bookings(fitness_class))
         if number_booked >= fitness_class.capacity[fitness_class.category]:
             fitness_class.full = True
@@ -36,7 +36,7 @@ def select(id):
     sql = "SELECT * FROM fitness_classes WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
-    fitness_class = FitnessClass(result['name'], result['category'], result['day'], result['time'], id)
+    fitness_class = FitnessClass(result['name'], result['category'], result['day'], result['time'], result['active'], id)
     return fitness_class
 
 def delete_all():

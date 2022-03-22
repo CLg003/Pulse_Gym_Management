@@ -38,6 +38,14 @@
         <input type="time" id="time" name="time" min="06:00" max="21:00" value="{{ fitness_class.time }}">
     </div>
 
+    <div>
+        <label for="fitness-class-status">Class status: </label>
+        <input type="radio" id="active" name="fitness-class-status" value="active" {% if fitness_class.active %}checked="checked"{% endif %}>
+        <label for="premium">Active</label>
+        <input type="radio" id="inactive" name="fitness-class-status" value="inactive" {% if not fitness_class.active %}checked="checked"{% endif %}>
+        <label for="standard">Inactive</label>
+    </div>
+
     <button class="smaller-text-button" type="submit">Update</button>
     <button class="smaller-text-button" type="reset">Reset form</button>
 </form>

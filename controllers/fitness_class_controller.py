@@ -46,7 +46,12 @@ def update_fitness_class(id):
     category = request.form['category']
     day = request.form['day']
     time = request.form['time']
-    fitness_class = FitnessClass(name, category, day, time, id)
+    class_status = request.form['fitness-class-status']
+    if class_status == "inactive":
+        active = False
+    else:
+        active = True
+    fitness_class = FitnessClass(name, category, day, time, active, id)
     fitness_class_repository.update(fitness_class)
     message = "Class successfully updated."
     return render_template('fitness_classes/show.html', message=message, fitness_class=fitness_class, title='Updated Fitness Class Details')

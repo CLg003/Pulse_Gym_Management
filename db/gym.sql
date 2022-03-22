@@ -16,7 +16,8 @@ CREATE TABLE fitness_classes (
     name VARCHAR(255),
     category VARCHAR(255),
     day VARCHAR(255),
-    time VARCHAR(255)
+    time VARCHAR(255),
+    active BOOLEAN
 );
 
 CREATE TABLE bookings (
@@ -26,6 +27,7 @@ CREATE TABLE bookings (
 );
 
 ALTER TABLE members ALTER COLUMN active SET DEFAULT True;
+ALTER TABLE fitness_classes ALTER COLUMN active SET DEFAULT True;
 
 -- INSERT INTO members (first_name, last_name, address, email) VALUES ('Jessica', 'Fletcher', '698 Candlewood Lane, Cabot Cove', 'jessica.fletcher@email.com');
 -- INSERT INTO members (first_name, last_name, address, email) VALUES ('Sherlock', 'Holmes', '221b Baker Street, London', 'sherlock.holmes@email.com');

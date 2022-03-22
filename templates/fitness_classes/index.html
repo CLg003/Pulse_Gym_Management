@@ -11,6 +11,7 @@
         <th>Category</th>
         <th>Day</th>
         <th>Time</th>
+        <th>Status</th>
     </tr>
     {% for day in days %}
         {% for fitness_class in fitness_classes %}
@@ -29,6 +30,13 @@
                     <td>{{ fitness_class.category }}</td>
                     <td>{{ fitness_class.day }}</td>
                     <td>{{ fitness_class.time }}</td>
+
+                    {% if fitness_class.active %}
+                        <td class="td-column-center">Active</td>
+                    {% else %}
+                        <td class="red td-column-center">Inactive</td>
+                    {% endif %}
+
                     <td class="td-column-center">
                         {% if fitness_class.full %}
                         <button type="button" id="class-full-button">Class Full</button>

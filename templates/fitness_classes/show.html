@@ -11,6 +11,12 @@
     <p><strong>Category: </strong>{{ fitness_class.category }}</p>
     <p><strong>Day: </strong>{{ fitness_class.day }}</p>
     <p><strong>Time: </strong>{{ fitness_class.time }}</p>
+    {% if fitness_class.active %}
+        <p><strong>Status: </strong>Active</p>
+    {% else %}
+        <p class="red"><strong>Status: </strong>Inactive</p>
+    {% endif %}
+
 </div>
 
 <div class="button-actions-form">
