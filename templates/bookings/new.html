@@ -3,7 +3,7 @@
 
 <h1>Add a new booking:</h1>
 <br>
-<form action="/bookings" method="post">
+<form action="/bookings/new" method="post">
     <div>
         <label for="member_id">Member ID/Name:</label>
         <select id="member_id" name="member_id">
@@ -32,7 +32,7 @@
         <div class="big-button-column">
             <a href="/members/new">
                 <div class="big-button">
-                    <img src="static/images/noun-profile-1041817.png" width="200px">
+                    <img src="{{url_for('static', filename= 'images/noun-profile-1041817.png')}}" width="200px">
                 </div>
             </a>
             <h2>+ New Member</h2>
@@ -40,7 +40,7 @@
         <div class="big-button-column">
             <a href="/fitness_classes/new">
                 <div class="big-button">
-                    <img src="static/images/noun-weight-1274253.png" width="200px">
+                    <img src="{{url_for('static', filename= 'images/noun-weight-1274253.png')}}" width="200px">
                 </div>
             </a>
             <h2>+ New Class</h2>
@@ -48,7 +48,7 @@
         <div class="big-button-column">
             <a href="/bookings/new">
                 <div class="big-button">
-                    <img src="static/images/noun-add-calendar-943110.png" width="200px">
+                    <img src="{{url_for('static', filename= 'images/noun-add-calendar-943110.png')}}" width="200px">
                 </div>
             </a>
             <h2>+ New Booking</h2>

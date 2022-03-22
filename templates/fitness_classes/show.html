@@ -2,6 +2,7 @@
 {% block content %}
 
 <h1>Class details</h1>
+<p id="success-message">{{ message }}</p>
 <br>
 <div class="details">
     <p><strong>Name: </strong>{{ fitness_class.name }}</p>
@@ -47,5 +48,18 @@
     </table>
 </section>
 <br>
+
+<section class="quick-link-buttons">
+    <div id="big-button-single">
+        <div class="big-button-column">
+            <a href="/bookings/new">
+                <div class="big-button">
+                    <img src="{{url_for('static', filename= 'images/noun-add-calendar-943110.png')}}" width="200px">
+                </div>
+            </a>
+            <h2>+ New Booking</h2>
+        </div>
+    </div>
+</section>
 
 {% endblock %}

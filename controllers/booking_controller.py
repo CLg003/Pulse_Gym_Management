@@ -19,7 +19,7 @@ def new_booking():
     members = member_repository.select_all()
     return render_template('bookings/new.html', fitness_classes=fitness_classes, members=members, title='New Booking')
 
-@bookings_blueprint.route('/bookings', methods=['POST'])
+@bookings_blueprint.route('/bookings/new', methods=['POST'])
 def create_booking():
     member_id = request.form['member_id']
     fitness_class_id = request.form['fitness_class_id']
@@ -27,7 +27,8 @@ def create_booking():
     fitness_class = fitness_class_repository.select(fitness_class_id)
     booking = Booking(member, fitness_class)
     booking_repository.save(booking)
-    return redirect('/bookings')
+    message = "New booking successfully created."
+    return render_template('bookings/show.html', booking=booking, message=message, title='New Booking Details')
 
 @bookings_blueprint.route('/bookings/<id>', methods=['GET'])
 def show_booking(id):
@@ -49,9 +50,12 @@ def update_booking(id):
     fitness_class = fitness_class_repository.select(fitness_class_id)
     booking = Booking(member, fitness_class, id)
     booking_repository.save(booking)
-    return redirect('/bookings')
+    message = "Booking successfully updated."
+    return render_template('bookings/show.html', message=message, booking=booking, title='Updated Booking Details')
 
 @bookings_blueprint.route('/bookings/<id>/delete', methods=['POST'])
 def delete_booking(id):
     booking_repository.delete(id)
-    return redirect('/bookings')
+    bookings = booking_repository.select_all()
+    message = "Booking successfully deleted."
+    return render_template('bookings/index.html', message=message, bookings=bookings, title='Bookings')

@@ -144,6 +144,11 @@ td > button > a:hover {
     color: #fff;
 }
 
+#success-message {
+    padding: 10px 0;
+    font-weight: 800;
+}
+
 .details {
     padding: 10px 20px;
 }
@@ -178,12 +183,12 @@ form > div {
     padding: 10px 0;
 }
 
-#first_name {
+#first-name {
     width: 200px;
     margin-left: 20px;
 }
 
-#last_name {
+#last-name {
     width: 200px;
 }
 
@@ -219,6 +224,12 @@ form > button:hover {
     justify-content: space-around;
     align-items: center;
     flex-flow: wrap row;
+    padding: 30px 0;
+}
+
+#big-button-single {
+    display: flex;
+    justify-content: flex-start;
     padding: 30px 0;
 }
 

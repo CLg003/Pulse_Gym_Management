@@ -15,7 +15,7 @@ def members():
 def new_member():
     return render_template('members/new.html', title='New Member')
 
-@members_blueprint.route('/members', methods=['POST'])
+@members_blueprint.route('/members/new', methods=['POST'])
 def create_member():
     first_name = request.form['first_name']
     last_name = request.form['last_name']
@@ -23,13 +23,14 @@ def create_member():
     email = request.form['email']
     member = Member(first_name, last_name, address, email)
     member_repository.save(member)
-    return redirect('/members')
+    message = "New member successfully created."
+    return render_template('members/show.html', member=member, message=message, title='New Member Details')
 
 @members_blueprint.route('/members/<id>', methods=['GET'])
 def show_member(id):
     member = member_repository.select(id)
     bookings = member_repository.bookings(member)
-    return render_template('members/show.html', member=member, bookings=bookings, title='Member Details')
+    return render_template('members/show.html', member=member, bookings=bookings, title='View Member Details')
 
 @members_blueprint.route('/members/<id>/edit', methods=['GET'])
 def edit_member(id):
@@ -44,10 +45,13 @@ def update_member(id):
     email = request.form['email']
     member = Member(first_name, last_name, address, email, id)
     member_repository.update(member)
-    return redirect('/members')   
+    message = "Member details successfully updated."
+    return render_template('members/show.html', message=message, member=member, title='Updated Member Details')   
 
 @members_blueprint.route('/members/<id>/delete', methods=['POST'])
 def delete_member(id):
     member_repository.delete(id)
-    return redirect('/members')
+    members = member_repository.select_all()
+    message = "Member successfully deleted."
+    return render_template('members/index.html', message=message, members=members, title='Members')
 
