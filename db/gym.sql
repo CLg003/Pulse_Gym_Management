@@ -7,7 +7,9 @@ CREATE TABLE members (
     first_name VARCHAR(255),
     last_name VARCHAR(255),
     address VARCHAR(255),
-    email VARCHAR(255)
+    email VARCHAR(255),
+    premium BOOLEAN,
+    active BOOLEAN
 );
 
 CREATE TABLE fitness_classes (

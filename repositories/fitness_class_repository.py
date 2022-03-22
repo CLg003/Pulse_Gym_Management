@@ -36,7 +36,7 @@ def select(id):
     sql = "SELECT * FROM fitness_classes WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
-    fitness_class = FitnessClass(result['name'], result['category'], result['day'], result['time'], result['id'])
+    fitness_class = FitnessClass(result['name'], result['category'], result['day'], result['time'], id)
     return fitness_class
 
 def delete_all():

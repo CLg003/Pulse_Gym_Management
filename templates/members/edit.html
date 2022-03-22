@@ -25,8 +25,25 @@
         <input type="text" id="email" name="email" value="{{ member.email }}">
     </div>
 
+    <div>
+        <label for="membership-level">Membership level: </label>
+        <input type="radio" id="premium" name="membership-level" value="premium" {% if member.premium %}checked="checked"{% endif %}>
+        <label for="premium">Premium</label>
+        <input type="radio" id="standard" name="membership-level" value="standard" {% if not member.premium %}checked="checked"{% endif %}>
+        <label for="standard">Standard</label>
+    </div>
+
+    <div>
+        <label for="membership-status">Membership status: </label>
+        <input type="radio" id="active" name="membership-status" value="active" {% if member.active %}checked="checked"{% endif %}>
+        <label for="premium">Active</label>
+        <input type="radio" id="inactive" name="membership-status" value="inactive" {% if not member.active %}checked="checked"{% endif %}>
+        <label for="standard">Inactive</label>
+    </div>
+
     <button class="smaller-text-button" type="submit">Update</button>
     <button class="smaller-text-button" type="reset">Reset form</button>
+    
 </form>
 
 {% endblock %}

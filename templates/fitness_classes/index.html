@@ -12,31 +12,35 @@
         <th>Day</th>
         <th>Time</th>
     </tr>
-    {% for fitness_class in fitness_classes %}
-        <tr>
-        
-            {% if fitness_class.category == "Gym" %}
-                <td class="td-column-center"><img src="{{url_for('static', filename= 'images/noun-barbell-2291019.png')}}" alt="Small barbell icon" height="15px"></td>
-            {% elif fitness_class.category == "Cardio" %}
-                <td class="td-column-center"><img src="{{url_for('static', filename= 'images/noun-heart-1067505.png')}}" alt="Small heart icon" height="25px"></td>
-            {% elif fitness_class.category == "Mind & Body" %}
-                <td class="td-column-center"><img src="{{url_for('static', filename= 'images/noun-yoga-1933061.png')}}" alt="Small yoga icon" height="25px"></td>
+    {% for day in days %}
+        {% for fitness_class in fitness_classes %}
+            {% if fitness_class.day == day %}
+                <tr>
+                
+                    {% if fitness_class.category == "Gym" %}
+                        <td class="td-column-center"><img src="{{url_for('static', filename= 'images/noun-barbell-2291019.png')}}" alt="Small barbell icon" height="15px"></td>
+                    {% elif fitness_class.category == "Cardio" %}
+                        <td class="td-column-center"><img src="{{url_for('static', filename= 'images/noun-heart-1067505.png')}}" alt="Small heart icon" height="25px"></td>
+                    {% elif fitness_class.category == "Mind & Body" %}
+                        <td class="td-column-center"><img src="{{url_for('static', filename= 'images/noun-yoga-1933061.png')}}" alt="Small yoga icon" height="25px"></td>
+                    {% endif %}
+                    
+                    <td>{{ fitness_class.name }}</td>
+                    <td>{{ fitness_class.category }}</td>
+                    <td>{{ fitness_class.day }}</td>
+                    <td>{{ fitness_class.time }}</td>
+                    <td class="td-column-center">
+                        {% if fitness_class.full %}
+                        <button type="button" id="class-full-button">Class Full</button>
+                        {% else %}
+                        <button type="button" id="book-class-button"><a href="/bookings/new">Book Class</a></button>
+                        {% endif %}
+                        <button type="button" id="details-button"><a href="/fitness_classes/{{ fitness_class.id }}">Class Details</a></button>
+                        <button type="button" id="edit-button"><a href="/fitness_classes/{{ fitness_class.id }}/edit">Edit Class</a></button>
+                    </td>
+                </tr>
             {% endif %}
-            
-            <td>{{ fitness_class.name }}</td>
-            <td>{{ fitness_class.category }}</td>
-            <td>{{ fitness_class.day }}</td>
-            <td>{{ fitness_class.time }}</td>
-            <td class="td-column-center">
-                {% if fitness_class.full %}
-                <button type="button" id="class-full-button">Class Full</button>
-                {% else %}
-                <button type="button" id="book-class-button"><a href="/bookings/new">Book Class</a></button>
-                {% endif %}
-                <button type="button" id="details-button"><a href="/fitness_classes/{{ fitness_class.id }}">Class Details</a></button>
-                <button type="button" id="edit-button"><a href="/fitness_classes/{{ fitness_class.id }}/edit">Edit Class</a></button>
-            </td>
-        </tr>
+        {% endfor %}
     {% endfor %}
 </table>
 

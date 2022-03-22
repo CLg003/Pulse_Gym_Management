@@ -17,8 +17,8 @@ def save(member):
     return member
 
 def update(member):
-    sql = "UPDATE members SET (first_name, last_name, address, email) = (%s, %s, %s, %s) WHERE id = %s"
-    values = [member.first_name, member.last_name, member.address, member.email, member.id]
+    sql = "UPDATE members SET (first_name, last_name, address, email, premium, active) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [member.first_name, member.last_name, member.address, member.email, member.premium, member.active, member.id]
     run_sql(sql, values)
 
 def select_all():
@@ -26,7 +26,7 @@ def select_all():
     sql = "SELECT * FROM members"
     results = run_sql(sql)
     for row in results:
-        member = Member(row['first_name'], row['last_name'], row['address'], row['email'], row['id'])
+        member = Member(row['first_name'], row['last_name'], row['address'], row['email'], row['premium'], row['active'], row['id'])
         members.append(member)
     return members
 
@@ -34,7 +34,7 @@ def select(id):
     sql = "SELECT * FROM members WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
-    member = Member(result['first_name'], result['last_name'], result['address'], result['email'], result['id'])
+    member = Member(result['first_name'], result['last_name'], result['address'], result['email'], result['premium'], result['active'], result['id'])
     return member
 
 def delete_all():

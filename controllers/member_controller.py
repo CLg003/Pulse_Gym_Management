@@ -39,11 +39,19 @@ def edit_member(id):
 
 @members_blueprint.route('/members/<id>', methods=['POST'])
 def update_member(id):
+    premium = False
+    active = True
     first_name = request.form['first_name']
     last_name = request.form['last_name']
     address = request.form['address']
     email = request.form['email']
-    member = Member(first_name, last_name, address, email, id)
+    membership_level = request.form['membership-level']
+    membership_status = request.form['membership-status']
+    if membership_level == "premium":
+        premium = True
+    if membership_status == "inactive":
+        active = False
+    member = Member(first_name, last_name, address, email, id, premium, active)
     member_repository.update(member)
     message = "Member details successfully updated."
     return render_template('members/show.html', message=message, member=member, title='Updated Member Details')   

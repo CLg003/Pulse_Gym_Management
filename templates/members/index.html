@@ -11,6 +11,7 @@
         <th>Last Name</th>
         <th>Address</th>
         <th>Email</th>
+        <th>Membership</th>
         <th></th>
     </tr>
     {% for member in members %}
@@ -20,6 +21,15 @@
             <td>{{ member.last_name }}</td>
             <td>{{ member.address }}</td>
             <td>{{ member.email }}</td>
+
+            {% if member.premium %}
+                <td class="td-column-center">Premium</td>
+            {% elif member.active %}
+                <td class="td-column-center">Standard</td>
+            {% else %}
+                <td class="red td-column-center">Inactive</td>
+            {% endif %}
+            
             <td class="td-column-center">
                 <button type="button" id="details-button"><a href="/members/{{ member.id }}">Member Details</a></button>
                 <button type="button" id="edit-button"><a href="/members/{{ member.id }}/edit">Edit Member</a></button>

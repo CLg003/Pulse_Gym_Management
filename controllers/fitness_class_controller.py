@@ -9,7 +9,8 @@ fitness_classes_blueprint = Blueprint('fitness_classes', __name__)
 @fitness_classes_blueprint.route('/fitness_classes', methods=['GET'])
 def fitness_classes():
     fitness_classes = fitness_class_repository.select_all()
-    return render_template('fitness_classes/index.html', fitness_classes=fitness_classes, title='Fitness Classes')
+    days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    return render_template('fitness_classes/index.html', fitness_classes=fitness_classes, days=days, title='Fitness Classes')
 
 @fitness_classes_blueprint.route('/fitness_classes/new', methods=['GET'])
 def new_class():
@@ -54,5 +55,6 @@ def update_fitness_class(id):
 def delete_fitness_class(id):
     fitness_class_repository.delete(id)
     fitness_classes = fitness_class_repository.select_all()
+    days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     message = "Class successfully deleted."
-    return render_template('fitness_classes/index.html', message=message, fitness_classes=fitness_classes, title='Fitness Classes')
+    return render_template('fitness_classes/index.html', message=message, fitness_classes=fitness_classes, days=days, title='Fitness Classes')

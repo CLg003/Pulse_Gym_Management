@@ -23,6 +23,12 @@ member_repository.save(member_4)
 member_5 = Member("Holly", "Golightly", "350 Fifth Avenue, New York City", "holly.golightly@email.com")
 member_repository.save(member_5)
 
+member_1.premium = True
+member_repository.update(member_1)
+member_3.premium = True
+member_repository.update(member_3)
+member_4.premium = True
+member_repository.update(member_4)
 
 class_1 = FitnessClass("Yoga", "Mind & Body", "Monday", "19:00")
 fitness_class_repository.save(class_1)
