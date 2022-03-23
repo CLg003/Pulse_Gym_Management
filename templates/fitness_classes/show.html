@@ -67,7 +67,7 @@
                 <td class="td-column-center table-buttons-check-in">
                         <form action="/fitness_classes/{{ fitness_class.id }}/arrived" method="post">
                             {% if not booking.arrived %}
-                                <button type="submit" id="check-in-button">Check In</button>
+                                <button type="submit" id="check-in-button" value={{ booking.id }} name="check-in">Check In</button>
                             {% else %}
                                 <button type="button" id="arrived">Arrived</button>
                             {% endif %}

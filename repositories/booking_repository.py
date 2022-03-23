@@ -50,7 +50,6 @@ def delete(id):
     run_sql(sql, values)
 
 def check_in(booking):
-    sql = "UPDATE bookings SET arrived = true WHERE id = %s"
+    sql = "UPDATE bookings SET arrived = TRUE WHERE id = %s"
     values = [booking.id]
     run_sql(sql, values)
-    return booking

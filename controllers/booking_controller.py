@@ -60,11 +60,11 @@ def update_booking(id):
 @bookings_blueprint.route('/fitness_classes/<id>/arrived', methods=['POST'])
 def arrive(id):
     fitness_class = fitness_class_repository.select(id)
-    booking_to_check_in = booking_repository.select(id)
-    member = member_repository.select(booking_to_check_in.member.id)
-    arrived_booking = booking_repository.check_in(booking_to_check_in)
+    booking_id = request.form['check-in']
+    booking_to_check_in = booking_repository.select(booking_id)
+    booking_repository.check_in(booking_to_check_in)
     bookings = fitness_class_repository.bookings(fitness_class)
-    return render_template('fitness_classes/show.html', booking=arrived_booking, fitness_class=fitness_class, member=member, bookings=bookings, title='View Booking Details')
+    return render_template('fitness_classes/show.html', fitness_class=fitness_class, bookings=bookings, title='View Booking Details')
 
 @bookings_blueprint.route('/bookings/<id>/delete', methods=['POST'])
 def delete_booking(id):
