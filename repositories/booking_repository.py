@@ -27,7 +27,7 @@ def select_all():
     for row in results:
         member = member_repository.select(row['member_id'])
         fitness_class = fitness_class_repository.select(row['fitness_class_id'])
-        booking = Booking(member, fitness_class, row['id'])
+        booking = Booking(member, fitness_class, row['arrived'], row['id'])
         bookings.append(booking)
     return bookings
 
@@ -37,7 +37,7 @@ def select(id):
     result = run_sql(sql, values)[0]
     member = member_repository.select(result['member_id'])
     fitness_class = fitness_class_repository.select(result['fitness_class_id'])
-    booking = Booking(member, fitness_class, result['id'])
+    booking = Booking(member, fitness_class, result['arrived'], id)
     return booking
 
 def delete_all():
