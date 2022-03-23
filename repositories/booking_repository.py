@@ -16,8 +16,8 @@ def save(booking):
     return booking
 
 def update(booking):
-    sql = "UPDATE bookings SET (member_id, fitness_class_id) = (%s, %s) WHERE id = %s"
-    values = [booking.member.id, booking.fitness_class.id, booking.id]
+    sql = "UPDATE bookings SET (member_id, fitness_class_id, arrived) = (%s, %s, %s) WHERE id = %s"
+    values = [booking.member.id, booking.fitness_class.id, booking.arrived, booking.id]
     run_sql(sql, values)
 
 def select_all():
@@ -48,3 +48,9 @@ def delete(id):
     sql = "DELETE FROM bookings WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+
+def check_in(booking):
+    sql = "UPDATE bookings SET arrived = true WHERE id = %s"
+    values = [booking.id]
+    run_sql(sql, values)
+    return booking

@@ -46,6 +46,14 @@
         <label for="standard">Inactive</label>
     </div>
 
+    <div>
+        <label for="fitness-class-level">Class level: </label>
+        <input type="radio" id="premium" name="fitness-class-level" value="premium" {% if fitness_class.premium %}checked="checked"{% endif %}>
+        <label for="premium">Premium</label>
+        <input type="radio" id="standard" name="fitness-class-level" value="standard" {% if not fitness_class.premium %}checked="checked"{% endif %}>
+        <label for="standard">Standard</label>
+    </div>
+
     <button class="smaller-text-button" type="submit">Update</button>
     <button class="smaller-text-button" type="reset">Reset form</button>
 </form>

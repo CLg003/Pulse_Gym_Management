@@ -31,8 +31,8 @@ def create_fitness_class():
 @fitness_classes_blueprint.route('/fitness_classes/<id>', methods=['GET'])
 def show_fitness_class(id):
     fitness_class = fitness_class_repository.select(id)
-    members = fitness_class_repository.members(fitness_class)
-    return render_template('fitness_classes/show.html', fitness_class=fitness_class, members=members, title='Fitness Class Details')
+    bookings = fitness_class_repository.bookings(fitness_class)
+    return render_template('fitness_classes/show.html', fitness_class=fitness_class, bookings=bookings, title='Fitness Class Details')
 
 @fitness_classes_blueprint.route('/fitness_classes/<id>/edit', methods=['GET'])
 def edit_fitness_class(id):
@@ -52,7 +52,12 @@ def update_fitness_class(id):
         active = False
     else:
         active = True
-    fitness_class = FitnessClass(name, category, day, time, active, id)
+    class_level = request.form['fitness-class-level']
+    if class_level == "premium":
+        premium = True
+    else:
+        premium = False
+    fitness_class = FitnessClass(name, category, day, time, active, premium, id)
     fitness_class_repository.update(fitness_class)
     members = fitness_class_repository.members(fitness_class)
     message = "Class successfully updated."

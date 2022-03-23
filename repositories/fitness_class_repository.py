@@ -16,8 +16,8 @@ def save(fitness_class):
     return fitness_class
 
 def update(fitness_class):
-    sql = "UPDATE fitness_classes SET (name, category, day, time, active) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
-    values = [fitness_class.name, fitness_class.category, fitness_class.day, fitness_class.time, fitness_class.active, fitness_class.full, fitness_class.id]
+    sql = "UPDATE fitness_classes SET (name, category, day, time, active, premium) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [fitness_class.name, fitness_class.category, fitness_class.day, fitness_class.time, fitness_class.active, fitness_class.premium, fitness_class.id]
     run_sql(sql, values)
 
 def select_all():
@@ -25,10 +25,14 @@ def select_all():
     sql = "SELECT * FROM fitness_classes"
     results = run_sql(sql)
     for row in results:
-        fitness_class = FitnessClass(row['name'], row['category'], row['day'], row['time'], row['active'], row['id'])
+        fitness_class = FitnessClass(row['name'], row['category'], row['day'], row['time'], row['active'], row['premium'], row['id'])
         number_booked = len(members(fitness_class))
         if number_booked >= fitness_class.capacity[fitness_class.category]:
             fitness_class.full = True
+        if (fitness_class.day == "Saturday") or (fitness_class.day == "Sunday"):
+            fitness_class.premium = True
+        else:
+            fitness_class.premium = False
         fitness_classes.append(fitness_class)
     return fitness_classes
 
@@ -36,7 +40,7 @@ def select(id):
     sql = "SELECT * FROM fitness_classes WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
-    fitness_class = FitnessClass(result['name'], result['category'], result['day'], result['time'], result['active'], id)
+    fitness_class = FitnessClass(result['name'], result['category'], result['day'], result['time'], result['active'], result['premium'], id)
     number_booked = len(members(fitness_class))
     if number_booked >= fitness_class.capacity[fitness_class.category]:
         fitness_class.full = True
@@ -69,7 +73,7 @@ def bookings(fitness_class):
     for row in results:
         member = member_repository.select(row['member_id'])
         fitness_class = select(row['fitness_class_id'])
-        booking = Booking(member, fitness_class, row['id'])
+        booking = Booking(member, fitness_class, row['arrived'], row['id'])
         bookings.append(booking)
     return bookings
 

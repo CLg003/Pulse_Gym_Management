@@ -31,7 +31,9 @@
                     <td>{{ fitness_class.day }}</td>
                     <td>{{ fitness_class.time }}</td>
 
-                    {% if fitness_class.active %}
+                    {% if fitness_class.premium %}
+                        <td class="td-column-center">Premium</td>
+                    {% elif fitness_class.active %}
                         <td class="td-column-center">Active</td>
                     {% else %}
                         <td class="red td-column-center">Inactive</td>

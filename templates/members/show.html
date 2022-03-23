@@ -8,8 +8,10 @@
     <p><strong>Name: </strong>{{ member.first_name }} {{ member.last_name }}</p>
     <p><strong>Address: </strong>{{ member.address }}</p>
     <p><strong>Email: </strong>{{ member.email }}</p>
-    {% if member.active %}
-        <p><strong>Membership: </strong>Active</p>
+    {% if member.premium %}
+        <p><strong>Membership: </strong>Active - Premium</p>
+    {% elif member.active %}
+        <p><strong>Membership: </strong>Active - Standard</p>
     {% else %}
         <p class="red"><strong>Membership: </strong>Inactive</p>
     {% endif %}

@@ -8,6 +8,7 @@ CREATE TABLE members (
     last_name VARCHAR(255) NOT NULL,
     address VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
+    premium BOOLEAN,
     active BOOLEAN
 );
 
@@ -17,17 +18,22 @@ CREATE TABLE fitness_classes (
     category VARCHAR(255) NOT NULL,
     day VARCHAR(255) NOT NULL,
     time VARCHAR(255) NOT NULL,
-    active BOOLEAN
+    active BOOLEAN,
+    premium BOOLEAN
 );
 
 CREATE TABLE bookings (
     id SERIAL PRIMARY KEY,
     member_id INT REFERENCES members(id) ON DELETE CASCADE,
-    fitness_class_id INT REFERENCES fitness_classes(id) ON DELETE CASCADE
+    fitness_class_id INT REFERENCES fitness_classes(id) ON DELETE CASCADE,
+    arrived BOOLEAN
 );
 
+ALTER TABLE members ALTER COLUMN premium SET DEFAULT False;
 ALTER TABLE members ALTER COLUMN active SET DEFAULT True;
+ALTER TABLE fitness_classes ALTER COLUMN premium SET DEFAULT False;
 ALTER TABLE fitness_classes ALTER COLUMN active SET DEFAULT True;
+ALTER TABLE bookings ALTER COLUMN arrived SET DEFAULT False;
 
 -- INSERT INTO members (first_name, last_name, address, email) VALUES ('Jessica', 'Fletcher', '698 Candlewood Lane, Cabot Cove', 'jessica.fletcher@email.com');
 -- INSERT INTO members (first_name, last_name, address, email) VALUES ('Sherlock', 'Holmes', '221b Baker Street, London', 'sherlock.holmes@email.com');

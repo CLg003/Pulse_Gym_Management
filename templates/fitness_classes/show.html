@@ -11,6 +11,13 @@
     <p><strong>Category: </strong>{{ fitness_class.category }}</p>
     <p><strong>Day: </strong>{{ fitness_class.day }}</p>
     <p><strong>Time: </strong>{{ fitness_class.time }}</p>
+
+    {% if fitness_class.premium %}
+        <p><strong>Level: </strong>Premium</p>
+    {% else %}
+        <p><strong>Level: </strong>Standard</p>
+    {% endif %}
+
     {% if fitness_class.active %}
         <p><strong>Status: </strong>Active</p>
     {% else %}
@@ -42,20 +49,30 @@
             <th>Membership</th>
             <th></th>
         </tr>
-        {% for member in members %}
+        {% for booking in bookings %}
             <tr>
-                <td class="td-column-center">{{ member.id }}</td>
-                <td>{{ member.first_name }}</td>
-                <td>{{ member.last_name }}</td>
-                <td>{{ member.address }}</td>
-                <td>{{ member.email }}</td>
-                {% if member.active %}
+                <td class="td-column-center">{{ booking.member.id }}</td>
+                <td>{{ booking.member.first_name }}</td>
+                <td>{{ booking.member.last_name }}</td>
+                <td>{{ booking.member.address }}</td>
+                <td>{{ booking.member.email }}</td>
+                {% if booking.member.premium %}
+                    <td class="td-column-center">Premium</td>
+                {% elif booking.member.active %}
                     <td class="td-column-center">Active</td>
                 {% else %}
                     <td class="red td-column-center">Inactive</td>
                 {% endif %}
-                <td class="td-column-center">
-                    <button type="button" id="details-button"><a href="/members/{{ member.id }}">Member Details</a></button>
+
+                <td class="td-column-center table-buttons-check-in">
+                        <form action="/fitness_classes/{{ fitness_class.id }}/arrived" method="post">
+                            {% if not booking.arrived %}
+                                <button type="submit" id="check-in-button">Check In</button>
+                            {% else %}
+                                <button type="button" id="arrived">Arrived</button>
+                            {% endif %}
+                        </form >
+                    <button type="button" id="details-button"><a href="/members/{{ booking.member.id }}">Member Details</a></button>
                 </td>
             </tr>
         {% endfor %}

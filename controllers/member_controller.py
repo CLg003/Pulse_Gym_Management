@@ -44,12 +44,17 @@ def update_member(id):
     last_name = request.form['last_name']
     address = request.form['address']
     email = request.form['email']
+    membership_level = request.form['membership-level']
+    if membership_level == "premium":
+        premium = True
+    else:
+        premium = False
     membership_status = request.form['membership-status']
     if membership_status == "inactive":
         active = False
     else:
         active = True
-    member = Member(first_name, last_name, address, email, active, id)
+    member = Member(first_name, last_name, address, email, premium, active, id)
     member_repository.update(member)
     message = "Member details successfully updated."
     return render_template('members/show.html', message=message, member=member, title='Updated Member Details')   
