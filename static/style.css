@@ -198,10 +198,6 @@ td > button > a:hover {
     margin: 10px 0;
 }
 
-/* .green {
-    color: #008000;
-} */
-
 .red {
     color: #FF160C;
 }
@@ -310,7 +306,6 @@ form > button:hover {
 }    
 
 footer {
-    /* background-color: #387594; */
     color: #ced2dc;
     height: 60px;
     margin: 0;
