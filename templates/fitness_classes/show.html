@@ -2,7 +2,7 @@
 {% block content %}
 
 <h1>Class details</h1>
-{% if members|length >= fitness_class.capacity[fitness_class.category] %}
+{% if fitness_class.full %}
 <button type="button" id="class-full-button">Class Full</button>
 {% endif %}
 <p id="success-message">{{ message }}</p>

@@ -54,8 +54,9 @@ def update_fitness_class(id):
         active = True
     fitness_class = FitnessClass(name, category, day, time, active, id)
     fitness_class_repository.update(fitness_class)
+    members = fitness_class_repository.members(fitness_class)
     message = "Class successfully updated."
-    return render_template('fitness_classes/show.html', message=message, fitness_class=fitness_class, title='Updated Fitness Class Details')
+    return render_template('fitness_classes/show.html', message=message, fitness_class=fitness_class, members=members, title='Updated Fitness Class Details')
 
 @fitness_classes_blueprint.route('/fitness_classes/<id>/delete', methods=['POST'])
 def delete_fitness_class(id):

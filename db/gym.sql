@@ -4,19 +4,19 @@ DROP TABLE IF EXISTS members;
 
 CREATE TABLE members (
     id SERIAL PRIMARY KEY,
-    first_name VARCHAR(255),
-    last_name VARCHAR(255),
-    address VARCHAR(255),
-    email VARCHAR(255),
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
     active BOOLEAN
 );
 
 CREATE TABLE fitness_classes (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
-    category VARCHAR(255),
-    day VARCHAR(255),
-    time VARCHAR(255),
+    name VARCHAR(255) NOT NULL,
+    category VARCHAR(255) NOT NULL,
+    day VARCHAR(255) NOT NULL,
+    time VARCHAR(255) NOT NULL,
     active BOOLEAN
 );
 
