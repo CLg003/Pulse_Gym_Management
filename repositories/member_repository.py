@@ -64,6 +64,6 @@ def bookings(member):
     for row in results:
         member = select(row['member_id'])
         fitness_class = fitness_class_repository.select(row['fitness_class_id'])
-        booking = Booking(member, fitness_class, row['id'])
+        booking = Booking(member, fitness_class, row['arrived'], row['id'])
         bookings.append(booking)
     return bookings

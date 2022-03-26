@@ -16,4 +16,4 @@ class TestFitnessClass(unittest.TestCase):
         self.assertEqual("Monday", self.class_1.day)
 
     def test_class_has_time(self):
-        self.assertEqual("13:00", self.class_1.time)
+        self.assertEqual("19:00", self.class_1.time)

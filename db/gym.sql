@@ -35,6 +35,9 @@ ALTER TABLE fitness_classes ALTER COLUMN premium SET DEFAULT False;
 ALTER TABLE fitness_classes ALTER COLUMN active SET DEFAULT True;
 ALTER TABLE bookings ALTER COLUMN arrived SET DEFAULT False;
 
+
+-- Commands used for testing database:
+
 -- INSERT INTO members (first_name, last_name, address, email) VALUES ('Jessica', 'Fletcher', '698 Candlewood Lane, Cabot Cove', 'jessica.fletcher@email.com');
 -- INSERT INTO members (first_name, last_name, address, email) VALUES ('Sherlock', 'Holmes', '221b Baker Street, London', 'sherlock.holmes@email.com');
 

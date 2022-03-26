@@ -163,6 +163,10 @@ booking_repository.save(booking_39)
 booking_40 = Booking(member_12, class_14)
 booking_repository.save(booking_40)
 
+
+
+# Calls used for testing repository functions:
+
 # member_1.first_name = "Joey"
 # member_repository.update(member_1)
 
