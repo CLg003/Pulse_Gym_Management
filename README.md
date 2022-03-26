@@ -24,9 +24,15 @@ In addition, the app also has the functionality to:
 Python, Flask, PostgreSQL with psycopg package, HTML, CSS
 
 ![Pulse Gym Management - members page](/assets/images/members_ss.png)
+
 ![Pulse Gym Management - fitness classes page](/assets/images/fitness_classes_ss.png)
+
 ![Pulse Gym Management - new member page](/assets/images/add_new_member_ss.png)
+
 ![Pulse Gym Management - edit member details page](/assets/images/edit_member_details_ss.png)
+
 ![Pulse Gym Management - booking details page](/assets/images/booking_details_ss.png)
+
 ![Pulse Gym Management - fitness class page](/assets/images/class_details_ss.png)
+
 ![Pulse Gym Management - checking in booked members](/assets/images/check_in_booked_members_ss.png)
