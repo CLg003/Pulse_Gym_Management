@@ -2,9 +2,10 @@
 
 Python full-stack web app (CodeClan solo project)
 
-![Pulse Gym Management home page](/assets/images/home_page_ss.png)
+![Pulse Gym Management - home page](/assets/images/home_page_ss.png)
 
-Pulse Gym Management is a full-stack Python web app that I designed and built as a solo project. The brief was to build a piece of software to help a local gym to manage memberships, fitness classes and bookings. The app was to allow the gym to:
+### Introduction & Brief
+Pulse Gym Management is a full-stack Python web app that I have designed and built as a solo project as part of my Professional Software Development PDA course at CodeClan. The brief was to build a piece of software to help a local gym to manage memberships, fitness classes and bookings. The app was to allow the gym to:
 - Create and edit members and fitness classes
 - Book members onto classes
 - View a list of all upcoming classes
@@ -16,8 +17,16 @@ In addition, the app also has the functionality to:
 - Enable gym staff to mark members and classes as active or inactive. Inactive members and classes are not available when creating bookings.
 - Check in members on arrival to pre-booked fitness classes.
 
+### Running Instructions
+`flask run` in command line from root folder of project. Home page is accessible via your localhost port.
 
-1 running instructions for your applications (so other people can clone it and run it)
-2 your brief
-3 the technologies you used
-4 it can also contain screenshots!
+### Tech Stack
+Python, Flask, PostgreSQL with psycopg package, HTML, CSS
+
+![Pulse Gym Management - members page](/assets/images/members_ss.png)
+![Pulse Gym Management - fitness classes page](/assets/images/fitness_classes_ss.png)
+![Pulse Gym Management - new member page](/assets/images/add_new_member_ss.png)
+![Pulse Gym Management - edit member details page](/assets/images/edit_member_details_ss.png)
+![Pulse Gym Management - booking details page](/assets/images/booking_details_ss.png)
+![Pulse Gym Management - fitness class page](/assets/images/class_details_ss.png)
+![Pulse Gym Management - checking in booked members](/assets/images/check_in_booked_members_ss.png)
