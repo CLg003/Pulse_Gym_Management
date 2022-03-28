@@ -18,7 +18,7 @@ In addition, the app also has the functionality to:
 - Check in members on arrival to pre-booked fitness classes.
 
 ### Running Instructions
-`flask run` in command line from root folder of project. Home page is accessible via your localhost port.
+You will require Flask and a database client for PostgreSQL databases, such as Postico. In the command line, in the root folder of the project, create a gym database and sync it with the project's gym.sql file. If you wish, you can choose to seed the database by running the console.py file. To run the app, run Flask in the project's root folder. The app home page is accessible via your localhost port.
 
 ### Tech Stack
 Python, Flask, PostgreSQL with psycopg package, HTML, CSS
